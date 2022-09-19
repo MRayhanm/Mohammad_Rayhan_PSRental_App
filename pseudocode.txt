@@ -1,0 +1,51 @@
+STORE "menu" as STRING WITH VALUE "y", "Y"
+STORE "listMenu" as NUMBER WITH VALUE "1", "2", "3", "4", "5"
+STORE "jumlah" as NUMBER WITH any VALUE
+STORE "nama" as STRING WITH VALUE "Rental Playstation 3", "Rental Playstation 4", "Rental Playstation 5", "Sewa Playstation 3", "Sewa Playstation 4"
+STORE "harga" as NUMBER WITH VALUE "4000", "8000", "13000", "60000", "100000"
+STORE "totalHarga" as NUMBER WITH any VALUE
+STORE "diterima" as NUMBER WITH any VALUE
+STORE "kembali" as NUMBER WITH any VALUE
+
+WHILE "menu" EQUAL y or y
+    DO
+    INPUT "listMenu"
+    INPUT "jumlah"
+    IF listMenu EQUAL 1
+        STORE "nama" WITH "Rental Playstation 3"
+        STORE "harga" WITH 4000
+        IF jumlah EQUAL 3
+            "totalHarga" EQUAL 10000
+        ELSE
+            "totalHarga" EQUAL "harga" TIMES jumlah
+    ELSE IF listMenu EQUAL 2
+        STORE "nama" WITH "Rental Playstation 4"
+        STORE "harga" WITH 8000
+        IF jumlah EQUAL 3
+            "totalHarga" EQUAL 20000
+        ELSE
+            "totalHarga" EQUAL "harga" TIMES jumlah
+    ELSE IF listMenu EQUAL 3
+        STORE "nama" WITH "Rental Playstation 5"
+        STORE "harga" WITH 13000
+        "totalHarga" EQUAL "harga" TIMES jumlah
+    ELSE IF listMenu EQUAL 4
+        STORE "nama" WITH "Sewa Playstation 3"
+        STORE "harga" WITH 60000
+        "totalHarga" EQUAL "harga" TIMES jumlah
+    ELSE IF listMenu EQUAL 3
+        STORE "nama" WITH "Sewa Playstation 4"
+        STORE "harga" WITH 100000
+        "totalHarga" EQUAL "harga" TIMES jumlah
+    ELSE
+        DISPLAY "Tidak Tersedia"
+    END IF
+    DISPLAY "nama"
+    DISPLAY "jumlah" 
+    DISPLAY "harga" 
+    DISPLAY "totalHarga" 
+    INPUT "diterima"
+    STORE "kembali" WITH "diterima" MINUS totalHarga
+    DISPLAY "kembali"
+    INPUT "menu"
+END WHILE
